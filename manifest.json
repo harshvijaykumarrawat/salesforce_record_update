@@ -1,14 +1,31 @@
-{
-  "name": "Getting Started Example",
-  "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions": ["storage"],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "page_action": {
-    "default_popup": "index.html"
-  },
-  "manifest_version": 2
+{  
+    "manifest_version": 2,  
+    "name": "Salesforce Record Update",  
+    "description": "",  
+    "version": "0.1", 
+
+    "chrome_url_overrides": {
+        "newtab": "index.html" //the html to show in popup
+    },
+	
+	"content_scripts": [
+	  {
+		"matches": ["http://*/*"],
+		"css": ["./lib/index.css"],
+		"js": ["./lib/jQuery.js", "./lib/index.js"]
+	  }
+	],
+	
+    "browser_action": {
+        
+    },
+
+    "permissions": [
+        "tabs"
+    ],
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    }
 }
